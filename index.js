@@ -40,11 +40,7 @@ app.get('/minor', ckeckIdade, (req, res) => {
 app.post('/check', (req, res) => {
   const { idade } = req.body
 
-  if (idade >= 18) {
-    return res.redirect(`/major?idade=${idade}`)
-  } else {
-    return res.redirect(`/minor?idade=${idade}`)
-  }
+  return (idade >= 18) ? res.redirect(`/major?idade=${idade}`) : res.redirect(`/minor?idade=${idade}`)
 })
 
 app.listen(3000)
